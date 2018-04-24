@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="vm"
+            type="com.b00sti.genericadapter.base.AdapterViewModel&lt;com.b00sti.genericadapter.TodoItem>"/>
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{()->vm.onItemClicked()}">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tvTodoName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:paddingEnd="24dp"
+            android:paddingStart="24dp"
+            android:text="@{vm.item.name}"
+            android:textSize="18sp"
+            android:layout_marginTop="2dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Shopping"/>
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tvTodoTimeStamp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:paddingEnd="24dp"
+            android:paddingStart="24dp"
+            android:textSize="12sp"
+            android:text="@{String.valueOf(vm.item.timestamp)}"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTodoName"
+            tools:text="10.05.2019"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="2dp"
+            android:background="@color/colorAccent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTodoTimeStamp"/>
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>
